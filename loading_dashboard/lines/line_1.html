@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="data.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <title>Dashboard</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Formulation Loading Dashboard</h1>
+    </header>
+
+
+
+
+
+    <button class="importButton" onclick="openImportData()">Import Data</button>
+<!-- Overlay for the background -->
+<div id="importOverlay" class="overlay">
+  <!-- Dialog box for input -->
+  <div class="dialog-box">
+      <h2>Import data</h2>
+      <input type="text" id="importData" class="input-field" placeholder = "Paste data here...">
+      <button class="button" onclick="importData()">Import</button>
+      <button class="button" onclick="cancel()">Cancel</button>
+  </div>
+</div>
+
+    <!-- Overlay for the background -->
+    <div id="overlay" class="overlay">
+      <!-- Dialog box for input -->
+      <div class="dialog-box">
+          <h2>Enter Freeze Dryer Name</h2>
+          <input type="text" id="textInput" class="input-field" placeholder="Freeze Dryer">
+          <button class="button" onclick="submitText()">Submit</button>
+          <button class="button" onclick="cancel()">Cancel</button>
+      </div>
+    </div>
+
+    <div id="removalOverlay" class="overlay">
+      <div class="dialog-box">
+        <label for="lot-input">Enter lot to add/remove:</label>
+        <input type="text" class="input-field" id="lot-input">
+        <button class="button" id="remove-button" onclick="removeOrAddLot()">Add/Remove Lot</button>
+        <button class="button" onclick="cancel()">Cancel</button>
+      </div>
+    </div>
+
+    <section> 
+      <div class="container">
+
+          <div class="card">
+            <h2 id="FD1">FD 1</h2>
+            <img id="FD1_image" src="" class="circular-border"><br>
+            <button class="button" onclick="openDialog(1)">Change FD</button>
+            <button class="button" id="open-dialog" onclick="openRemovalDialog(1)">Add/Remove Lots</button>
+            <div id="panel1" class="fdPanel">
+              <p class="tray" id="FD1_tray1">Tray 1</p>
+              <p class="tray" id="FD1_tray2">Tray 2</p>
+              <p class="tray" id="FD1_tray3">Tray 3</p>
+              <p class="tray" id="FD1_tray4">Tray 4</p>
+              <p class="tray" id="FD1_tray5">Tray 5</p>
+              <p class="tray" id="FD1_tray6">Tray 6</p>
+              <p class="tray" id="FD1_tray7">Tray 7</p>
+              <p class="tray" id="FD1_tray8">Tray 8</p>
+              <p class="tray" id="FD1_tray9">Tray 9</p>
+              <p class="tray" id="FD1_tray10">Tray 10</p>
+              <p class="tray" id="FD1_tray11">Tray 11</p>
+              <p class="tray" id="FD1_tray12">Tray 12</p>
+              <p class="tray" id="FD1_tray13">Tray 13</p>
+              <p class="tray" id="FD1_tray14">Tray 14</p>
+              <p class="tray" id="FD1_tray15">Tray 15</p>
+            </div>
+            <div class="actions">
+              <label for="textbox">Started by</label><br>
+                <input type="text" id="textbox"><br><br>
+                <button class="buttons" onclick="changeColor(this)">Started</button>
+                <button class="buttons" onclick="changeColor(this)">Verified</button>
+            </div>
+               
+          
+            </div>
+            
+
+          
+            <div class="card">
+              <h2 id="FD2">FD 2</h2>
+              <img id="FD2_image" src="" class="circular-border"><br>
+              <button class="button" onclick="openDialog(2)">Change FD</button>
+              <button class="button" id="open-dialog" onclick="openRemovalDialog(2)">Add/Remove Lots</button>
+              <div id="panel2" class="fdPanel">
+                <p class="tray" id="FD2_tray1">Tray 1</p>
+                <p class="tray" id="FD2_tray2">Tray 2</p>
+                <p class="tray" id="FD2_tray3">Tray 3</p>
+                <p class="tray" id="FD2_tray4">Tray 4</p>
+                <p class="tray" id="FD2_tray5">Tray 5</p>
+                <p class="tray" id="FD2_tray6">Tray 6</p>
+                <p class="tray" id="FD2_tray7">Tray 7</p>
+                <p class="tray" id="FD2_tray8">Tray 8</p>
+                <p class="tray" id="FD2_tray9">Tray 9</p>
+                <p class="tray" id="FD2_tray10">Tray 10</p>
+                <p class="tray" id="FD2_tray11">Tray 11</p>
+                <p class="tray" id="FD2_tray12">Tray 12</p>
+                <p class="tray" id="FD2_tray13">Tray 13</p>
+                <p class="tray" id="FD2_tray14">Tray 14</p>
+                <p class="tray" id="FD2_tray15">Tray 15</p>
+              </div>
+              <div class="actions">
+                <label for="textbox">Started by</label><br>
+                  <input type="text" id="textbox"><br><br>
+                  <button class="buttons" onclick="changeColor(this)">Started</button>
+                  <button class="buttons" onclick="changeColor(this)">Verified</button>
+              </div>
+           
+          </div>
+          
+          <div class="card">
+            <h2 id="FD3">FD 3</h2>
+            <img id="FD3_image" src="" class="circular-border"><br>
+            <button class="button" onclick="openDialog(3)">Change FD</button>
+            <button class="button" id="open-dialog" onclick="openRemovalDialog(3)">Add/Remove Lots</button>
+            <div id="panel3" class="fdPanel">
+              <p class="tray" id="FD3_tray1">Tray 1</p>
+              <p class="tray" id="FD3_tray2">Tray 2</p>
+              <p class="tray" id="FD3_tray3">Tray 3</p>
+              <p class="tray" id="FD3_tray4">Tray 4</p>
+              <p class="tray" id="FD3_tray5">Tray 5</p>
+              <p class="tray" id="FD3_tray6">Tray 6</p>
+              <p class="tray" id="FD3_tray7">Tray 7</p>
+              <p class="tray" id="FD3_tray8">Tray 8</p>
+              <p class="tray" id="FD3_tray9">Tray 9</p>
+              <p class="tray" id="FD3_tray10">Tray 10</p>
+              <p class="tray" id="FD3_tray11">Tray 11</p>
+              <p class="tray" id="FD3_tray12">Tray 12</p>
+              <p class="tray" id="FD3_tray13">Tray 13</p>
+              <p class="tray" id="FD3_tray14">Tray 14</p>
+              <p class="tray" id="FD3_tray15">Tray 15</p>
+            </div>
+            <div class="actions">
+              <label for="textbox">Started by</label><br>
+                <input type="text" id="textbox"><br><br>
+                <button class="buttons" onclick="changeColor(this)">Started</button>
+                <button class="buttons" onclick="changeColor(this)">Verified</button>
+            </div>
+      
+        </div>
+
+        <div class="card">
+          <h2 id="FD4">FD 4</h2>
+          <img id="FD4_image" src="" class="circular-border"><br>
+          <button class="button" onclick="openDialog(4)">Change FD</button>
+          <button class="button" id="open-dialog" onclick="openRemovalDialog(4)">Add/Remove Lots</button>
+          <div id="panel4" class="fdPanel">
+            <p class="tray" id="FD4_tray1">Tray 1</p>
+            <p class="tray" id="FD4_tray2">Tray 2</p>
+            <p class="tray" id="FD4_tray3">Tray 3</p>
+            <p class="tray" id="FD4_tray4">Tray 4</p>
+            <p class="tray" id="FD4_tray5">Tray 5</p>
+            <p class="tray" id="FD4_tray6">Tray 6</p>
+            <p class="tray" id="FD4_tray7">Tray 7</p>
+            <p class="tray" id="FD4_tray8">Tray 8</p>
+            <p class="tray" id="FD4_tray9">Tray 9</p>
+            <p class="tray" id="FD4_tray10">Tray 10</p>
+            <p class="tray" id="FD4_tray11">Tray 11</p>
+            <p class="tray" id="FD4_tray12">Tray 12</p>
+            <p class="tray" id="FD4_tray13">Tray 13</p>
+            <p class="tray" id="FD4_tray14">Tray 14</p>
+            <p class="tray" id="FD4_tray15">Tray 15</p>
+          </div>
+          <div class="actions">
+            <label for="textbox">Started by</label><br>
+              <input type="text" id="textbox"><br><br>
+              <button class="buttons" onclick="changeColor(this)">Started</button>
+              <button class="buttons" onclick="changeColor(this)">Verified</button>
+          </div>
+   
+      </div>
+
+      <div class="card">
+        <h2 id="FD5">FD 5</h2>
+        <img id="FD5_image" src="" class="circular-border"><br>
+        <button class="button" onclick="openDialog(5)">Change FD</button>
+        <button class="button" id="open-dialog" onclick="openRemovalDialog(5)">Add/Remove Lots</button>
+        <div id="panel5" class="fdPanel">
+          <p class="tray" id="FD5_tray1">Tray 1</p>
+          <p class="tray" id="FD5_tray2">Tray 2</p>
+          <p class="tray" id="FD5_tray3">Tray 3</p>
+          <p class="tray" id="FD5_tray4">Tray 4</p>
+          <p class="tray" id="FD5_tray5">Tray 5</p>
+          <p class="tray" id="FD5_tray6">Tray 6</p>
+          <p class="tray" id="FD5_tray7">Tray 7</p>
+          <p class="tray" id="FD5_tray8">Tray 8</p>
+          <p class="tray" id="FD5_tray9">Tray 9</p>
+          <p class="tray" id="FD5_tray10">Tray 10</p>
+          <p class="tray" id="FD5_tray11">Tray 11</p>
+          <p class="tray" id="FD5_tray12">Tray 12</p>
+          <p class="tray" id="FD5_tray13">Tray 13</p>
+          <p class="tray" id="FD5_tray14">Tray 14</p>
+          <p class="tray" id="FD5_tray15">Tray 15</p>
+        </div>
+        <div class="actions">
+          <label for="textbox">Started by</label><br>
+            <input type="text" id="textbox"><br><br>
+            <button class="buttons" onclick="changeColor(this)">Started</button>
+            <button class="buttons" onclick="changeColor(this)">Verified</button>
+        </div>
+      
+    </div>
+
+    <div class="card">
+      <h2 id="FD6">FD 6</h2>
+      <img id="FD6_image" src="" class="circular-border"><br>
+      <button class="button" onclick="openDialog(6)">Change FD</button>
+      <button class="button" id="open-dialog" onclick="openRemovalDialog(6)">Add/Remove Lots</button>
+      <div id="panel6" class="fdPanel">
+        <p class="tray" id="FD6_tray1">Tray 1</p>
+        <p class="tray" id="FD6_tray2">Tray 2</p>
+        <p class="tray" id="FD6_tray3">Tray 3</p>
+        <p class="tray" id="FD6_tray4">Tray 4</p>
+        <p class="tray" id="FD6_tray5">Tray 5</p>
+        <p class="tray" id="FD6_tray6">Tray 6</p>
+        <p class="tray" id="FD6_tray7">Tray 7</p>
+        <p class="tray" id="FD6_tray8">Tray 8</p>
+        <p class="tray" id="FD6_tray9">Tray 9</p>
+        <p class="tray" id="FD6_tray10">Tray 10</p>
+        <p class="tray" id="FD6_tray11">Tray 11</p>
+        <p class="tray" id="FD6_tray12">Tray 12</p>
+        <p class="tray" id="FD6_tray13">Tray 13</p>
+        <p class="tray" id="FD6_tray14">Tray 14</p>
+        <p class="tray" id="FD6_tray15">Tray 15</p>
+      </div>
+      <div class="actions">
+        <label for="textbox">Started by</label><br>
+          <input type="text" id="textbox"><br><br>
+          <button class="buttons" onclick="changeColor(this)">Started</button>
+          <button class="buttons" onclick="changeColor(this)">Verified</button>
+      </div>
+     
+  </div>
+
+  <div class="card">
+    <h2 id="FD7">FD 7</h2>
+    <img id="FD7_image" src="" class="circular-border"><br>
+    <button class="button" onclick="openDialog(7)">Change FD</button>
+    <button class="button" id="open-dialog" onclick="openRemovalDialog(7)">Add/Remove Lots</button>
+    <div id="panel7" class="fdPanel">
+      <p class="tray" id="FD7_tray1">Tray 1</p>
+      <p class="tray" id="FD7_tray2">Tray 2</p>
+      <p class="tray" id="FD7_tray3">Tray 3</p>
+      <p class="tray" id="FD7_tray4">Tray 4</p>
+      <p class="tray" id="FD7_tray5">Tray 5</p>
+      <p class="tray" id="FD7_tray6">Tray 6</p>
+      <p class="tray" id="FD7_tray7">Tray 7</p>
+      <p class="tray" id="FD7_tray8">Tray 8</p>
+      <p class="tray" id="FD7_tray9">Tray 9</p>
+      <p class="tray" id="FD7_tray10">Tray 10</p>
+      <p class="tray" id="FD7_tray11">Tray 11</p>
+      <p class="tray" id="FD7_tray12">Tray 12</p>
+      <p class="tray" id="FD7_tray13">Tray 13</p>
+      <p class="tray" id="FD7_tray14">Tray 14</p>
+      <p class="tray" id="FD7_tray15">Tray 15</p>
+    </div>
+    <div class="actions">
+      <label for="textbox">Started by</label><br>
+        <input type="text" id="textbox"><br><br>
+        <button class="buttons" onclick="changeColor(this)">Started</button>
+        <button class="buttons" onclick="changeColor(this)">Verified</button>
+    </div>
+
+</div>
+
+<div class="card">
+  <h2 id="FD8">FD 8</h2>
+  <img id="FD8_image" src="" class="circular-border"><br>
+  <button class="button" onclick="openDialog(8)">Change FD</button>
+  <button class="button" id="open-dialog" onclick="openRemovalDialog(8)">Add/Remove Lots</button>
+  <div id="panel8" class="fdPanel">
+    <p class="tray" id="FD8_tray1">Tray 1</p>
+    <p class="tray" id="FD8_tray2">Tray 2</p>
+    <p class="tray" id="FD8_tray3">Tray 3</p>
+    <p class="tray" id="FD8_tray4">Tray 4</p>
+    <p class="tray" id="FD8_tray5">Tray 5</p>
+    <p class="tray" id="FD8_tray6">Tray 6</p>
+    <p class="tray" id="FD8_tray7">Tray 7</p>
+    <p class="tray" id="FD8_tray8">Tray 8</p>
+    <p class="tray" id="FD8_tray9">Tray 9</p>
+    <p class="tray" id="FD8_tray10">Tray 10</p>
+    <p class="tray" id="FD8_tray11">Tray 11</p>
+    <p class="tray" id="FD8_tray12">Tray 12</p>
+    <p class="tray" id="FD8_tray13">Tray 13</p>
+    <p class="tray" id="FD8_tray14">Tray 14</p>
+    <p class="tray" id="FD8_tray15">Tray 15</p>
+  </div>
+  <div class="actions">
+    <label for="textbox">Started by</label><br>
+      <input type="text" id="textbox"><br><br>
+      <button class="buttons" onclick="changeColor(this)">Started</button>
+      <button class="buttons" onclick="changeColor(this)">Verified</button>
+  </div>
+
+</div>
+
+<div class="card">
+  <h2 id="FD9">FD 9</h2>
+  <img id="FD9_image" src="" class="circular-border"><br>
+  <button class="button" onclick="openDialog(9)">Change FD</button>
+  <button class="button" id="open-dialog" onclick="openRemovalDialog(9)">Add/Remove Lots</button>
+  <div id="panel9" class="fdPanel">
+    <p class="tray" id="FD9_tray1">Tray 1</p>
+    <p class="tray" id="FD9_tray2">Tray 2</p>
+    <p class="tray" id="FD9_tray3">Tray 3</p>
+    <p class="tray" id="FD9_tray4">Tray 4</p>
+    <p class="tray" id="FD9_tray5">Tray 5</p>
+    <p class="tray" id="FD9_tray6">Tray 6</p>
+    <p class="tray" id="FD9_tray7">Tray 7</p>
+    <p class="tray" id="FD9_tray8">Tray 8</p>
+    <p class="tray" id="FD9_tray9">Tray 9</p>
+    <p class="tray" id="FD9_tray10">Tray 10</p>
+    <p class="tray" id="FD9_tray11">Tray 11</p>
+    <p class="tray" id="FD9_tray12">Tray 12</p>
+    <p class="tray" id="FD9_tray13">Tray 13</p>
+    <p class="tray" id="FD9_tray14">Tray 14</p>
+    <p class="tray" id="FD9_tray15">Tray 15</p>
+  </div>
+  <div class="actions">
+    <label for="textbox">Started by</label><br>
+      <input type="text" id="textbox"><br><br>
+      <button class="buttons" onclick="changeColor(this)">Started</button>
+      <button class="buttons" onclick="changeColor(this)">Verified</button>
+  </div>
+
+</div>
+
+<div class="card">
+  <h2 id="FD10">FD 10</h2>
+  <img id="FD10_image" src="" class="circular-border"><br>
+  <button class="button" onclick="openDialog(10)">Change FD</button>
+  <button class="button" id="open-dialog" onclick="openRemovalDialog(10)">Add/Remove Lots</button>
+  <div id="panel10" class="fdPanel">
+    <p class="tray" id="FD10_tray1">Tray 1</p>
+    <p class="tray" id="FD10_tray2">Tray 2</p>
+    <p class="tray" id="FD10_tray3">Tray 3</p>
+    <p class="tray" id="FD10_tray4">Tray 4</p>
+    <p class="tray" id="FD10_tray5">Tray 5</p>
+    <p class="tray" id="FD10_tray6">Tray 6</p>
+    <p class="tray" id="FD10_tray7">Tray 7</p>
+    <p class="tray" id="FD10_tray8">Tray 8</p>
+    <p class="tray" id="FD10_tray9">Tray 9</p>
+    <p class="tray" id="FD10_tray10">Tray 10</p>
+    <p class="tray" id="FD10_tray11">Tray 11</p>
+    <p class="tray" id="FD10_tray12">Tray 12</p>
+    <p class="tray" id="FD10_tray13">Tray 13</p>
+    <p class="tray" id="FD10_tray14">Tray 14</p>
+    <p class="tray" id="FD10_tray15">Tray 15</p>
+  </div>
+  <div class="actions">
+    <label for="textbox">Started by</label><br>
+      <input type="text" id="textbox"><br><br>
+      <button class="buttons" onclick="changeColor(this)">Started</button>
+      <button class="buttons" onclick="changeColor(this)">Verified</button>
+  </div>
+
+</div>
+<div class="card">
+  <h2 id="FD11">FD 11</h2>
+  <img id="FD11_image" src="" class="circular-border"><br>
+  <button class="button" onclick="openDialog(11)">Change FD</button>
+  <button class="button" id="open-dialog" onclick="openRemovalDialog(11)">Add/Remove Lots</button>
+  <div id="panel11" class="fdPanel">
+    <p class="tray" id="FD11_tray1">Tray 1</p>
+    <p class="tray" id="FD11_tray2">Tray 2</p>
+    <p class="tray" id="FD11_tray3">Tray 3</p>
+    <p class="tray" id="FD11_tray4">Tray 4</p>
+    <p class="tray" id="FD11_tray5">Tray 5</p>
+    <p class="tray" id="FD11_tray6">Tray 6</p>
+    <p class="tray" id="FD11_tray7">Tray 7</p>
+    <p class="tray" id="FD11_tray8">Tray 8</p>
+    <p class="tray" id="FD11_tray9">Tray 9</p>
+    <p class="tray" id="FD11_tray10">Tray 10</p>
+    <p class="tray" id="FD11_tray11">Tray 11</p>
+    <p class="tray" id="FD11_tray12">Tray 12</p>
+    <p class="tray" id="FD11_tray13">Tray 13</p>
+    <p class="tray" id="FD11_tray14">Tray 14</p>
+    <p class="tray" id="FD11_tray15">Tray 15</p>
+  </div>
+  <div class="actions">
+    <label for="textbox">Started by</label><br>
+      <input type="text" id="textbox"><br><br>
+      <button class="buttons" onclick="changeColor(this)">Started</button>
+      <button class="buttons" onclick="changeColor(this)">Verified</button>
+  </div>
+
+</div>
+<div class="card">
+  <h2 id="FD12">FD 12</h2>
+  <img id="FD12_image" src="" class="circular-border"><br>
+  <button class="button" onclick="openDialog(12)">Change FD</button>
+  <button class="button" id="open-dialog" onclick="openRemovalDialog(12)">Add/Remove Lots</button>
+  <div id="panel12" class="fdPanel">
+    <p class="tray" id="FD12_tray1">Tray 1</p>
+    <p class="tray" id="FD12_tray2">Tray 2</p>
+    <p class="tray" id="FD12_tray3">Tray 3</p>
+    <p class="tray" id="FD12_tray4">Tray 4</p>
+    <p class="tray" id="FD12_tray5">Tray 5</p>
+    <p class="tray" id="FD12_tray6">Tray 6</p>
+    <p class="tray" id="FD12_tray7">Tray 7</p>
+    <p class="tray" id="FD12_tray8">Tray 8</p>
+    <p class="tray" id="FD12_tray9">Tray 9</p>
+    <p class="tray" id="FD12_tray10">Tray 10</p>
+    <p class="tray" id="FD12_tray11">Tray 11</p>
+    <p class="tray" id="FD12_tray12">Tray 12</p>
+    <p class="tray" id="FD12_tray13">Tray 13</p>
+    <p class="tray" id="FD12_tray14">Tray 14</p>
+    <p class="tray" id="FD12_tray15">Tray 15</p>
+  </div>
+  <div class="actions">
+    <label for="textbox">Started by</label><br>
+      <input type="text" id="textbox"><br><br>
+      <button class="buttons" onclick="changeColor(this)">Started</button>
+      <button class="buttons" onclick="changeColor(this)">Verified</button>
+  </div>
+
+</div>
+
+<div class="card">
+  <h2 id="FD13">FD 13</h2>
+  <img id="FD13_image" src="" class="circular-border"><br>
+  <button class="button" onclick="openDialog(13)">Change FD</button>
+  <button class="button" id="open-dialog" onclick="openRemovalDialog(13)">Add/Remove Lots</button>
+  <div id="panel13" class="fdPanel">
+    <p class="tray" id="FD13_tray1">Tray 1</p>
+    <p class="tray" id="FD13_tray2">Tray 2</p>
+    <p class="tray" id="FD13_tray3">Tray 3</p>
+    <p class="tray" id="FD13_tray4">Tray 4</p>
+    <p class="tray" id="FD13_tray5">Tray 5</p>
+    <p class="tray" id="FD13_tray6">Tray 6</p>
+    <p class="tray" id="FD13_tray7">Tray 7</p>
+    <p class="tray" id="FD13_tray8">Tray 8</p>
+    <p class="tray" id="FD13_tray9">Tray 9</p>
+    <p class="tray" id="FD13_tray10">Tray 10</p>
+    <p class="tray" id="FD13_tray11">Tray 11</p>
+    <p class="tray" id="FD13_tray12">Tray 12</p>
+    <p class="tray" id="FD13_tray13">Tray 13</p>
+    <p class="tray" id="FD13_tray14">Tray 14</p>
+    <p class="tray" id="FD13_tray15">Tray 15</p>
+  </div>
+  <div class="actions">
+    <label for="textbox">Started by</label><br>
+      <input type="text" id="textbox"><br><br>
+      <button class="buttons" onclick="changeColor(this)">Started</button>
+      <button class="buttons" onclick="changeColor(this)">Verified</button>
+  </div>
+
+</div>
+
+<div class="card">
+  <h2 id="FD14">FD 14</h2>
+  <img id="FD14_image" src="" class="circular-border"><br>
+  <button class="button" onclick="openDialog(14)">Change FD</button>
+  <button class="button" id="open-dialog" onclick="openRemovalDialog(14)">Add/Remove Lots</button>
+  <div id="panel14" class="fdPanel">
+    <p class="tray" id="FD14_tray1">Tray 1</p>
+    <p class="tray" id="FD14_tray2">Tray 2</p>
+    <p class="tray" id="FD14_tray3">Tray 3</p>
+    <p class="tray" id="FD14_tray4">Tray 4</p>
+    <p class="tray" id="FD14_tray5">Tray 5</p>
+    <p class="tray" id="FD14_tray6">Tray 6</p>
+    <p class="tray" id="FD14_tray7">Tray 7</p>
+    <p class="tray" id="FD14_tray8">Tray 8</p>
+    <p class="tray" id="FD14_tray9">Tray 9</p>
+    <p class="tray" id="FD14_tray10">Tray 10</p>
+    <p class="tray" id="FD14_tray11">Tray 11</p>
+    <p class="tray" id="FD14_tray12">Tray 12</p>
+    <p class="tray" id="FD14_tray13">Tray 13</p>
+    <p class="tray" id="FD14_tray14">Tray 14</p>
+    <p class="tray" id="FD14_tray15">Tray 15</p>
+  </div> 
+  <div class="actions">
+    <label for="textbox">Started by</label><br>
+      <input type="text" id="textbox"><br><br>
+      <button class="buttons" onclick="changeColor(this)">Started</button>
+      <button class="buttons" onclick="changeColor(this)">Verified</button>
+  </div>
+
+</div>
+
+<div class="card">
+  <h2 id="FD15">FD 15</h2>
+  <img id="FD15_image" src="" class="circular-border"><br>
+  <button class="button" onclick="openDialog(15)">Change FD</button>
+  <button class="button" id="open-dialog" onclick="openRemovalDialog(15)">Add/Remove Lots</button>
+  <div id="panel15" class="fdPanel">
+    <p class="tray" id="FD15_tray1">Tray 1</p>
+    <p class="tray" id="FD15_tray2">Tray 2</p>
+    <p class="tray" id="FD15_tray3">Tray 3</p>
+    <p class="tray" id="FD15_tray4">Tray 4</p>
+    <p class="tray" id="FD15_tray5">Tray 5</p>
+    <p class="tray" id="FD15_tray6">Tray 6</p>
+    <p class="tray" id="FD15_tray7">Tray 7</p>
+    <p class="tray" id="FD15_tray8">Tray 8</p>
+    <p class="tray" id="FD15_tray9">Tray 9</p>
+    <p class="tray" id="FD15_tray10">Tray 10</p>
+    <p class="tray" id="FD15_tray11">Tray 11</p>
+    <p class="tray" id="FD15_tray12">Tray 12</p>
+    <p class="tray" id="FD15_tray13">Tray 13</p>
+    <p class="tray" id="FD15_tray14">Tray 14</p>
+    <p class="tray" id="FD15_tray15">Tray 15</p>
+  </div>
+  <div class="actions">
+    <label for="textbox">Started by</label><br>
+      <input type="text" id="textbox"><br><br>
+      <button class="buttons" onclick="changeColor(this)">Started</button>
+      <button class="buttons" onclick="changeColor(this)">Verified</button>
+  </div>
+
+</div>
+
+<div class="card">
+  <h2 id="FD16">FD 16</h2>
+  <img id="FD16_image" src="" class="circular-border"><br>
+  <button class="button" onclick="openDialog(16)">Change FD</button>
+  <button class="button" id="open-dialog" onclick="openRemovalDialog(16)">Add/Remove Lots</button>
+  <div id="panel16" class="fdPanel">
+    <p class="tray" id="FD16_tray1">Tray 1</p>
+    <p class="tray" id="FD16_tray2">Tray 2</p>
+    <p class="tray" id="FD16_tray3">Tray 3</p>
+    <p class="tray" id="FD16_tray4">Tray 4</p>
+    <p class="tray" id="FD16_tray5">Tray 5</p>
+    <p class="tray" id="FD16_tray6">Tray 6</p>
+    <p class="tray" id="FD16_tray7">Tray 7</p>
+    <p class="tray" id="FD16_tray8">Tray 8</p>
+    <p class="tray" id="FD16_tray9">Tray 9</p>
+    <p class="tray" id="FD16_tray10">Tray 10</p>
+    <p class="tray" id="FD16_tray11">Tray 11</p>
+    <p class="tray" id="FD16_tray12">Tray 12</p>
+    <p class="tray" id="FD16_tray13">Tray 13</p>
+    <p class="tray" id="FD16_tray14">Tray 14</p>
+    <p class="tray" id="FD16_tray15">Tray 15</p>
+  </div>
+  <div class="actions">
+    <label for="textbox">Started by</label><br>
+      <input type="text" id="textbox"><br><br>
+      <button class="buttons" onclick="changeColor(this)">Started</button>
+      <button class="buttons" onclick="changeColor(this)">Verified</button>
+  </div>
+
+</div>
+
+<div class="card">
+  <h2 id="FD17">FD 17</h2>
+  <img id="FD17_image" src="" class="circular-border"><br>
+  <button class="button" onclick="openDialog(17)">Change FD</button>
+  <button class="button" id="open-dialog" onclick="openRemovalDialog(17)">Add/Remove Lots</button>
+  <div id="panel17" class="fdPanel">
+    <p class="tray" id="FD17_tray1">Tray 1</p>
+    <p class="tray" id="FD17_tray2">Tray 2</p>
+    <p class="tray" id="FD17_tray3">Tray 3</p>
+    <p class="tray" id="FD17_tray4">Tray 4</p>
+    <p class="tray" id="FD17_tray5">Tray 5</p>
+    <p class="tray" id="FD17_tray6">Tray 6</p>
+    <p class="tray" id="FD17_tray7">Tray 7</p>
+    <p class="tray" id="FD17_tray8">Tray 8</p>
+    <p class="tray" id="FD17_tray9">Tray 9</p>
+    <p class="tray" id="FD17_tray10">Tray 10</p>
+    <p class="tray" id="FD17_tray11">Tray 11</p>
+    <p class="tray" id="FD17_tray12">Tray 12</p>
+    <p class="tray" id="FD17_tray13">Tray 13</p>
+    <p class="tray" id="FD17_tray14">Tray 14</p>
+    <p class="tray" id="FD17_tray15">Tray 15</p>
+  </div>
+  <div class="actions">
+    <label for="textbox">Started by</label><br>
+      <input type="text" id="textbox"><br><br>
+      <button class="buttons" onclick="changeColor(this)">Started</button>
+      <button class="buttons" onclick="changeColor(this)">Verified</button>
+  </div>
+
+</div>
+
+<div class="card">
+  <h2 id="FD18">FD 18</h2>
+  <img id="FD18_image" src="" class="circular-border"><br>
+  <button class="button" onclick="openDialog(18)">Change FD</button>
+  <button class="button" id="open-dialog" onclick="openRemovalDialog(18)">Add/Remove Lots</button>
+  <div id="panel18" class="fdPanel">
+    <p class="tray" id="FD18_tray1">Tray 1</p>
+    <p class="tray" id="FD18_tray2">Tray 2</p>
+    <p class="tray" id="FD18_tray3">Tray 3</p>
+    <p class="tray" id="FD18_tray4">Tray 4</p>
+    <p class="tray" id="FD18_tray5">Tray 5</p>
+    <p class="tray" id="FD18_tray6">Tray 6</p>
+    <p class="tray" id="FD18_tray7">Tray 7</p>
+    <p class="tray" id="FD18_tray8">Tray 8</p>
+    <p class="tray" id="FD18_tray9">Tray 9</p>
+    <p class="tray" id="FD18_tray10">Tray 10</p>
+    <p class="tray" id="FD18_tray11">Tray 11</p>
+    <p class="tray" id="FD18_tray12">Tray 12</p>
+    <p class="tray" id="FD18_tray13">Tray 13</p>
+    <p class="tray" id="FD18_tray14">Tray 14</p>
+    <p class="tray" id="FD18_tray15">Tray 15</p>
+  </div>
+  <div class="actions">
+    <label for="textbox">Started by</label><br>
+      <input type="text" id="textbox"><br><br>
+      <button class="buttons" onclick="changeColor(this)">Started</button>
+      <button class="buttons" onclick="changeColor(this)">Verified</button>
+  </div>
+
+</div>
+
+<div class="card">
+  <h2 id="FD19">FD 19</h2>
+  <img id="FD19_image" src="" class="circular-border"><br>
+  <button class="button" onclick="openDialog(19)">Change FD</button>
+  <button class="button" id="open-dialog" onclick="openRemovalDialog(19)">Add/Remove Lots</button>
+  <div id="panel19" class="fdPanel">
+    <p class="tray" id="FD19_tray1">Tray 1</p>
+    <p class="tray" id="FD19_tray2">Tray 2</p>
+    <p class="tray" id="FD19_tray3">Tray 3</p>
+    <p class="tray" id="FD19_tray4">Tray 4</p>
+    <p class="tray" id="FD19_tray5">Tray 5</p>
+    <p class="tray" id="FD19_tray6">Tray 6</p>
+    <p class="tray" id="FD19_tray7">Tray 7</p>
+    <p class="tray" id="FD19_tray8">Tray 8</p>
+    <p class="tray" id="FD19_tray9">Tray 9</p>
+    <p class="tray" id="FD19_tray10">Tray 10</p>
+    <p class="tray" id="FD19_tray11">Tray 11</p>
+    <p class="tray" id="FD19_tray12">Tray 12</p>
+    <p class="tray" id="FD19_tray13">Tray 13</p>
+    <p class="tray" id="FD19_tray14">Tray 14</p>
+    <p class="tray" id="FD19_tray15">Tray 15</p>
+  </div>
+  <div class="actions">
+    <label for="textbox">Started by</label><br>
+      <input type="text" id="textbox"><br><br>
+      <button class="buttons" onclick="changeColor(this)">Started</button>
+      <button class="buttons" onclick="changeColor(this)">Verified</button>
+  </div>
+
+</div>
+
+<div class="card">
+  <h2 id="FD20">FD 20</h2>
+  <img id="FD20_image" src="" class="circular-border"><br>
+  <button class="button" onclick="openDialog(20)">Change FD</button>
+  <button class="button" id="open-dialog" onclick="openRemovalDialog(20)">Add/Remove Lots</button>
+  <div id="panel20" class="fdPanel">
+    <p class="tray" id="FD20_tray1">Tray 1</p>
+    <p class="tray" id="FD20_tray2">Tray 2</p>
+    <p class="tray" id="FD20_tray3">Tray 3</p>
+    <p class="tray" id="FD20_tray4">Tray 4</p>
+    <p class="tray" id="FD20_tray5">Tray 5</p>
+    <p class="tray" id="FD20_tray6">Tray 6</p>
+    <p class="tray" id="FD20_tray7">Tray 7</p>
+    <p class="tray" id="FD20_tray8">Tray 8</p>
+    <p class="tray" id="FD20_tray9">Tray 9</p>
+    <p class="tray" id="FD20_tray10">Tray 10</p>
+    <p class="tray" id="FD20_tray11">Tray 11</p>
+    <p class="tray" id="FD20_tray12">Tray 12</p>
+    <p class="tray" id="FD20_tray13">Tray 13</p>
+    <p class="tray" id="FD20_tray14">Tray 14</p>
+    <p class="tray" id="FD20_tray15">Tray 15</p>
+  </div>
+  <div class="actions">
+    <label for="textbox">Started by</label><br>
+      <input type="text" id="textbox"><br><br>
+      <button class="buttons" onclick="changeColor(this)">Started</button>
+      <button class="buttons" onclick="changeColor(this)">Verified</button>
+  </div>
+
+</div>
+
+<div class="card">
+  <h2 id="FD21">FD 21</h2>
+  <img id="FD21_image" src="" class="circular-border"><br>
+  <button class="button" onclick="openDialog(21)">Change FD</button>
+  <button class="button" id="open-dialog" onclick="openRemovalDialog(21)">Add/Remove Lots</button>
+  <div id="panel21" class="fdPanel">
+    <p class="tray" id="FD21_tray1">Tray 1</p>
+    <p class="tray" id="FD21_tray2">Tray 2</p>
+    <p class="tray" id="FD21_tray3">Tray 3</p>
+    <p class="tray" id="FD21_tray4">Tray 4</p>
+    <p class="tray" id="FD21_tray5">Tray 5</p>
+    <p class="tray" id="FD21_tray6">Tray 6</p>
+    <p class="tray" id="FD21_tray7">Tray 7</p>
+    <p class="tray" id="FD21_tray8">Tray 8</p>
+    <p class="tray" id="FD21_tray9">Tray 9</p>
+    <p class="tray" id="FD21_tray10">Tray 10</p>
+    <p class="tray" id="FD21_tray11">Tray 11</p>
+    <p class="tray" id="FD21_tray12">Tray 12</p>
+    <p class="tray" id="FD21_tray13">Tray 13</p>
+    <p class="tray" id="FD21_tray14">Tray 14</p>
+    <p class="tray" id="FD21_tray15">Tray 15</p>
+  </div>
+  <div class="actions">
+    <label for="textbox">Started by</label><br>
+      <input type="text" id="textbox"><br><br>
+      <button class="buttons" onclick="changeColor(this)">Started</button>
+      <button class="buttons" onclick="changeColor(this)">Verified</button>
+  </div>
+
+</div>
+
+<div class="card">
+  <h2 id="FD22">FD 22</h2>
+  <img id="FD22_image" src="" class="circular-border"><br>
+  <button class="button" onclick="openDialog(22)">Change FD</button>
+  <button class="button" id="open-dialog" onclick="openRemovalDialog(22)">Add/Remove Lots</button>
+  <div id="panel22" class="fdPanel">
+    <p class="tray" id="FD22_tray1">Tray 1</p>
+    <p class="tray" id="FD22_tray2">Tray 2</p>
+    <p class="tray" id="FD22_tray3">Tray 3</p>
+    <p class="tray" id="FD22_tray4">Tray 4</p>
+    <p class="tray" id="FD22_tray5">Tray 5</p>
+    <p class="tray" id="FD22_tray6">Tray 6</p>
+    <p class="tray" id="FD22_tray7">Tray 7</p>
+    <p class="tray" id="FD22_tray8">Tray 8</p>
+    <p class="tray" id="FD22_tray9">Tray 9</p>
+    <p class="tray" id="FD22_tray10">Tray 10</p>
+    <p class="tray" id="FD22_tray11">Tray 11</p>
+    <p class="tray" id="FD22_tray12">Tray 12</p>
+    <p class="tray" id="FD22_tray13">Tray 13</p>
+    <p class="tray" id="FD22_tray14">Tray 14</p>
+    <p class="tray" id="FD22_tray15">Tray 15</p>
+  </div>
+  <div class="actions">
+    <label for="textbox">Started by</label><br>
+      <input type="text" id="textbox"><br><br>
+      <button class="buttons" onclick="changeColor(this)">Started</button>
+      <button class="buttons" onclick="changeColor(this)">Verified</button>
+  </div>
+
+</div>
+</div>
+
+</div>
+
+    </section>
+
+</body>
+</html>
+
+
+
