@@ -1,39 +1,47 @@
 function init() {
 
-  for (let j = 1; j <= 22; j++) {
-    const fdData = data[`Table_${j}`][`Freeze Dryer ${j}`];
+
+  // Extract the line number from the filename
+const filename = window.location.pathname.split('/').pop(); // Get the filename
+const lineNumber = filename.split('_')[1].split('.')[0]; // Extract the line number
+
+for (let j = 1; j <= 22; j++) {
+    // Determine the table number based on the line number
+    const tableNumber = `Table${lineNumber}_${j}`;
+    const fdData = data[tableNumber][`Freeze Dryer ${j}`];
     document.getElementById(`FD${j}`).innerHTML = fdData[1];
     document.getElementById(`FD${j}_image`).src = `../resources/${fdData[1].toLowerCase()}.jpg`;
-  
+
     // Array to keep track of encountered values
     const encounteredValues = [];
-  
+
     for (let i = 2; i <= 16; i++) {
-      // Check if the value is a duplicate by comparing the first 8 letters
-      const value = fdData[i];
-      const truncatedValue = value.slice(0, 8); // Get the first 8 letters
-      const isDuplicate = encounteredValues.some(existingValue => existingValue.slice(0, 8) === truncatedValue);
-  
-      if (isDuplicate) {
-        // If duplicate, set the innerHTML to an empty string
-        document.getElementById(`FD${j}_tray${i - 1}`).innerHTML = "";
-      } else {
-        // If not a duplicate, split the value at the first space
-        const [textBeforeSpace, textAfterSpace] = value.split(' ');
-        
-        // Set the innerHTML to the value before the space
-        document.getElementById(`FD${j}_tray${i - 1}`).innerHTML = textBeforeSpace;
-  
-        // Create a new <h3> element with the text after the space and append it before the element
-        const h3Element = document.createElement('h3');
-        h3Element.textContent = textAfterSpace;
-        document.getElementById(`FD${j}_tray${i - 1}`).parentNode.insertBefore(h3Element, document.getElementById(`FD${j}_tray${i - 1}`));
-  
-        // Add the value to encounteredValues
-        encounteredValues.push(truncatedValue);
-      }
+        // Check if the value is a duplicate by comparing the first 8 letters
+        const value = fdData[i];
+        const truncatedValue = value.slice(0, 8); // Get the first 8 letters
+        const isDuplicate = encounteredValues.some(existingValue => existingValue.slice(0, 8) === truncatedValue);
+
+        if (isDuplicate) {
+            // If duplicate, set the innerHTML to an empty string
+            document.getElementById(`FD${j}_tray${i - 1}`).innerHTML = "";
+        } else {
+            // If not a duplicate, split the value at the first space
+            const [textBeforeSpace, textAfterSpace] = value.split(' ');
+
+            // Set the innerHTML to the value before the space
+            document.getElementById(`FD${j}_tray${i - 1}`).innerHTML = textBeforeSpace;
+
+            // Create a new <h3> element with the text after the space and append it before the element
+            const h3Element = document.createElement('h3');
+            h3Element.textContent = textAfterSpace;
+            document.getElementById(`FD${j}_tray${i - 1}`).parentNode.insertBefore(h3Element, document.getElementById(`FD${j}_tray${i - 1}`));
+
+            // Add the value to encounteredValues
+            encounteredValues.push(truncatedValue);
+        }
     }
-  }
+}
+
 
   // Get the container div
   const container = document.getElementById('fdPanel');
