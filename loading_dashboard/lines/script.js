@@ -108,8 +108,22 @@ function importData() {
 }
 
 function openImportData() {
-  document.getElementById("importOverlay").style.display = "block";
-  document.getElementById('importData').focus(); // Automatically focus on the text box
+  navigator.clipboard.readText()
+  .then(text => {
+    var clipboardInput = text;
+    data = JSON.parse(clipboardInput)
+    init();
+  })
+
+
+  // Add event listener for keydown event
+  document.getElementById('importData').addEventListener('keydown', function(event) {
+    // Check if the key pressed is the Enter key
+    if (event.key === 'Enter') {
+      // Select the import button
+      document.getElementById('importButton').click();
+    }
+  });
 }
 function openRemovalDialog(fd) {
   nameToChange = fd;

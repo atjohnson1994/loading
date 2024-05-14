@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="script.js"></script>
-    <script type="text/javascript" src="../data.js"></script>
     <title>Dashboard</title>
     <style>
         
@@ -27,7 +26,7 @@
   <div class="dialog-box">
       <h2>Import data</h2>
       <input type="text" id="importData" class="input-field" placeholder = "Paste data here...">
-      <button class="button" onclick="importData()">Import</button>
+      <button id="importButton" class="button" onclick="importData()">Import</button>
       <button class="button" onclick="cancel()">Cancel</button>
   </div>
 </div>
